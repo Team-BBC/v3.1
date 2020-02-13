@@ -41,19 +41,16 @@ session_start();
                 <label>Nombre de la sustancia</label>
                 <input type="text" class="form-control" name="nombre" id="nombre">
               </div>
-              <div class="form-group">
-                <label for="descripcion">Leve Descripcion (formula)</label>
-                <textarea class="form-control" id="descripcion" rows="3"></textarea>
-              </div>
+              
               <div class="form-group">
                 <label for="formGroupExampleInput2">PDF</label>
                 <div class="custom-file">
-                    <input type="file"  class="custom-file-input" name="fichero" id="fichero" required>
-                    <label class="custom-file-label" for="archivopdf">Escojer archivo...</label>
+                    <input type="file"  class="custom-file-input" name="fichero" id="fichero"  required>
+                    <label class="custom-file-label" for="archivopdf" data-browse="Seleccionar">Escojer archivo...</label>
                     <div class="invalid-feedback">Example invalid custom file feedback</div>
                 </div>
               </div>
-                <input type="submit" class="btn btn-primary" value="ENVIAR"  name="ok" id="ok">
+                <input type="submit" class="btn btn-primary" value="Enviar"  name="ok" id="ok">
                 <button type="button" class="btn btn-secondary" >Cancelar</button>
             </form>
 
