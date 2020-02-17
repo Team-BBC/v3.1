@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 13-02-2020 a las 20:41:38
+-- Tiempo de generación: 17-02-2020 a las 22:16:00
 -- Versión del servidor: 5.7.21
 -- Versión de PHP: 5.6.35
 
@@ -33,16 +33,19 @@ CREATE TABLE IF NOT EXISTS `document` (
   `id` int(9) NOT NULL AUTO_INCREMENT,
   `sustancia` varchar(50) DEFAULT NULL,
   `url` varchar(150) DEFAULT NULL,
+  `fecha` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `document`
 --
 
-INSERT INTO `document` (`id`, `sustancia`, `url`) VALUES
-(6, 'todo', 'ficherosSubidos/todo.pdf'),
-(7, 'carbon', 'ficherosSubidos/carbon.pdf');
+INSERT INTO `document` (`id`, `sustancia`, `url`, `fecha`) VALUES
+(6, 'todo', 'ficherosSubidos/todo.pdf', NULL),
+(7, 'carbon', 'ficherosSubidos/carbon.pdf', NULL),
+(8, 'cloro', 'ficherosSubidos/cloro.pdf', '2020-02-17 00:00:00'),
+(9, 'TTT', 'ficherosSubidos/TTT.pdf', '2020-02-17 15:54:00');
 
 -- --------------------------------------------------------
 
