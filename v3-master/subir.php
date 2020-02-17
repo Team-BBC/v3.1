@@ -1,12 +1,12 @@
 <?php 
-
+//	date_default_timezone_set('America/Monterrey');
 	require_once('config.php');
 	
 	
 	$nombre = $_POST["nombre"];
 	$archivoRecibido = $_FILES["fichero"]["tmp_name"];
 	$destino="ficherosSubidos/$nombre.pdf";
-
+//	$fecha = date('j-n-Y'). " " .date('g:i:s A');
 	
 	//Preparamos  la consulta
 	$sql = "SELECT COUNT(sustancia) AS num FROM  document WHERE sustancia = :sustancia";	
@@ -17,12 +17,13 @@
 	//se comprueba si hubo resultados en la BDD
 	$row = $stm ->fetch(PDO::FETCH_ASSOC);
 	if($row['num'] > 0){
-        die('That username already exists!');
+        die('Este registro ya existe');
     }else{
     	//Sube archivos a la base de datos
-    	$consulta =$db->  prepare("INSERT INTO document(sustancia,url) VALUES (:sustancia,:url)");
+    	$consulta =$db->  prepare("INSERT INTO document(sustancia,url,fecha) VALUES (:sustancia,:url,NOW())");
 		$consulta -> bindParam(':sustancia',$nombre);
 		$consulta -> bindParam(':url',$destino);
+		
 		$consulta->execute();
 
 		//sube el documento pdf a la carpeta de los archivos
