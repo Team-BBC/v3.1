@@ -66,7 +66,25 @@ session_start();
                         </div>
                         <div class="col-sm">
                             <div class=" container-fluid border border-dark rounded" style="background: white;height: auto;width: 55%;margin-top: 20px; margin-right: 8px">
-                                Two of three columns
+                                <div class=" container-fluid border border-dark rounded" style="background: white;height: 171%;width: 55%;margin-top: 20px; margin-right: 8px">
+                            <form action="subir.php"method="post" name="f_prof"id="f_prof" enctype="multipart/form-data" style="width: 75%">
+              <div class="form-group" style="margin-top: 8px">
+                <label>Nombre de la sustancia</label>
+                <input type="text" class="form-control" name="nombre" id="nombre">
+              </div>
+              
+              <div class="form-group">
+                <label for="formGroupExampleInput2">PDF</label>
+                <div class="custom-file">
+                    <input type="file"  class="custom-file-input" name="fichero" id="fichero"  required>
+                    <label class="custom-file-label" for="archivopdf" data-browse="Seleccionar">Escojer archivo...</label>
+                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+                </div>
+              </div>
+                <input type="submit" class="btn btn-primary" value="Enviar"  name="ok" id="ok">
+                
+            </form>
+                        </div>
                             </div>
                         
                         </div>                  
