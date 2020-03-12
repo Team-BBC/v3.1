@@ -10,14 +10,13 @@ session_start();
 <html>
 <head>
 	<meta charset = "utf-8"/>
-    <!--Importacion de CSS (stylesheet.css)-->
     <link rel= "stylesheet"  type="text/css"  href="stylesheet.css"/>
-     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- Required meta tags -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title> admin page</title>
 	<title></title>
 </head>
@@ -26,74 +25,70 @@ session_start();
             <?php
             include 'navbar.php';
             ?>
-            <div class="container-fluid border border-dark rounded" style="background: #eb984e;height: 82%;width: 90%;margin-top: 40px;"> 
-            <div class=" container-fluid border border-dark rounded" style="background:  #85c1e9 ;height: 95%;width: 95%;margin-top: 20px">
-                <div class="row ">
-                    <div class="col-sm">
-                        <div class=" container-fluid border border-dark rounded" style="background: white;height: 171%;width: 146%;margin-top: 20px">
-                            <form>
-                                <div class="form-group" style="margin-top: 20px">
-                                    
-                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Busqueda de sustancias">
+            <div class="container-fluid " style="height: auto;width: 90%;margin-top: 40px;"> 
+                <div class=" container-fluid " style="height: auto;width: 95%;margin-top: 20px">
+                    <div class="row ">
+                        <div class="col-sm">
+                            <div class=" container-fluid border border-dark rounded" style="background: white;height:auto ;width: 146%;margin-top: 20px;margin-bottom: 5px">
+                                <form>
+                                    <div class="form-group" style="margin-top: 20px">
+                                        
+                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Busqueda de sustancias">
 
+                                    </div>
+                                        
+                                </form>
+                                <div class="container">
+                                    <div class="row">
+                                        <h2>Crud con PDO y MySQL</h2>
+                                        <div class="col-sm-12">
+                                            <div class="card text-left">
+                                                <div class="card-header">
+                                                    <ul class="nav nav-tabs card-header-tabs">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link active" href="#">Crud PDO</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                                <div id="tablaDatos"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                    
-                            </form>
-                            <ul class="list-group list-group ">
-
-                                <li class="list-group-item ">Sustancia 1
-                                    <div class="btn-group btn-group-toggle ml-5" data-toggle="buttons">
-                                        <label class="btn btn-light btn-sm">
-                                        <a href="pythonpygameandraspberrypigamedevelopment_2e.pdf"download><input type="radio"  name="options" id="option1" checked> Descargar PDF
-                                        </label></a>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">Sustancia 2
-                                    <div class="btn-group btn-group-toggle ml-5" data-toggle="buttons">
-                                        <label class="btn btn-light btn-sm">
-                                        <input type="radio" name="options" id="option1" checked> Descargar PDF
-                                        </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">Sustancia 3
-                                    <div class="btn-group btn-group-toggle ml-5" data-toggle="buttons">
-                                        <label class="btn btn-light btn-sm">
-                                        <input type="radio" name="options" id="option1" checked> Descargar PDF
-                                        </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">Sustancia 4
-                                    <div class="btn-group btn-group-toggle ml-5" data-toggle="buttons">
-                                        <label class="btn btn-light btn-sm">
-                                        <input type="radio" name="options" id="option1" checked> Descargar PDF
-                                        </label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">Sustancia 5
-                                    <div class="btn-group btn-group-toggle ml-5" data-toggle="buttons">
-                                        <label class="btn btn-light btn-sm">
-                                        <input type="radio" name="options" id="option1" checked> Descargar PDF
-                                        </label>
-                                    </div>
-                                </li>
-                            </ul>
+                            </div>
+                        
                         </div>
-                    
+                        <div class="col-sm">
+                            <div class=" container-fluid border border-dark rounded" style="background: white;height: auto;width: 55%;margin-top: 20px; margin-right: 8px">
+                                Two of three columns
+                            </div>
+                        
+                        </div>                  
                     </div>
-                    <div class="col-sm">
-                        <div class=" container-fluid border border-dark rounded" style="background: white;height: 171%;width: 55%;margin-top: 20px; margin-right: 8px">
-                            Two of three columns
-                        </div>
-                    
-                    </div>                  
                 </div>
-            </div>
             </div>
             
         </div>   <!--Termina Contenido-->
 
 
+        <?php require_once "modalInsert.php" ?>
+        <?php require_once "modalUpdate.php" ?>
+        
+        <script src="librerias/bootstrap4/jquery-3.4.1.min.js"></script>
+        <script src="librerias/bootstrap4/popper.min.js"></script>
+        <script src="librerias/bootstrap4/bootstrap.min.js"></script>
+        <script src="librerias/sweetalert.min.js"></script>
+        <script src="js/crud.js"></script>
 
+        <script type="text/javascript">
+            mostrar();
+        </script>
         
 
         <!--Pie de Pagina-->

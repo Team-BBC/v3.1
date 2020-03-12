@@ -36,7 +36,7 @@ session_start();
 
         <!--Formulario de subida-->
         <div class="container-lg d-flex justify-content-center shadow bg-white rounded" style="height: 100%">
-            <form action="subir.php"method="post" name="f_prof"id="f_prof" enctype="multipart/form-data" style="width: 75%">
+            <form action="crud.php"method="post" name="f_prof"id="f_prof" enctype="multipart/form-data" style="width: 75%">
               <div class="form-group" style="margin-top: 8px">
                 <label>Nombre de la sustancia</label>
                 <input type="text" class="form-control" name="nombre" id="nombre">
@@ -45,7 +45,7 @@ session_start();
               <div class="form-group">
                 <label for="formGroupExampleInput2">PDF</label>
                 <div class="custom-file">
-                    <input type="file"  class="custom-file-input" name="fichero" id="fichero"  required>
+                    <input type="file"  class="custom-file-input" name="archivo" id="archivo"required>
                     <label class="custom-file-label" for="archivopdf" data-browse="Seleccionar">Escojer archivo...</label>
                     <div class="invalid-feedback">Example invalid custom file feedback</div>
                 </div>

@@ -49,55 +49,58 @@ session_start();
 
             <!--Ultimas Consultas-->
             
-            <ul class="list-group list-group mx-5 mt-5 mb-5">
-                
-                <li class="list-group-item ">Sustancia 1
-                    <div class="btn-group btn-group-toggle ml-5" data-toggle="buttons">
-                        <label class="btn btn-light btn-sm">
-                        <a href="pythonpygameandraspberrypigamedevelopment_2e.pdf"download><input type="radio"  name="options" id="option1" checked> Descargar PDF
-                        </label></a>
+            <div class="container">
+                <div class="row">
+                    <h2>Crud con PDO y MySQL</h2>
+                    <div class="col-sm-12">
+                        <div class="card text-left">
+                            <div class="card-header">
+                                <ul class="nav nav-tabs card-header-tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#">Crud PDO</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <span class="btn btn-primary" data-toggle="modal" data-target="#insertarModal">
+                                            <i class="fas fa-plus-circle"></i> Nuevo registro
+                                        </span>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                            <div id="tablaDatos"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </li>
-                <li class="list-group-item">Sustancia 2
-                    <div class="btn-group btn-group-toggle ml-5" data-toggle="buttons">
-                        <label class="btn btn-light btn-sm">
-                        <input type="radio" name="options" id="option1" checked> Descargar PDF
-                        </label>
-                    </div>
-                </li>
-                <li class="list-group-item">Sustancia 3
-                    <div class="btn-group btn-group-toggle ml-5" data-toggle="buttons">
-                        <label class="btn btn-light btn-sm">
-                        <input type="radio" name="options" id="option1" checked> Descargar PDF
-                        </label>
-                    </div>
-                </li>
-                <li class="list-group-item">Sustancia 4
-                    <div class="btn-group btn-group-toggle ml-5" data-toggle="buttons">
-                        <label class="btn btn-light btn-sm">
-                        <input type="radio" name="options" id="option1" checked> Descargar PDF
-                        </label>
-                    </div>
-                </li>
-                <li class="list-group-item">Sustancia 5
-                    <div class="btn-group btn-group-toggle ml-5" data-toggle="buttons">
-                        <label class="btn btn-light btn-sm">
-                        <input type="radio" name="options" id="option1" checked> Descargar PDF
-                        </label>
-                    </div>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>   <!--Termina Contenido-->
 
 
 
         
+        <?php require_once "modalInsert.php" ?>
+        <?php require_once "modalUpdate.php" ?>
 
+        <script src="librerias/bootstrap4/jquery-3.4.1.min.js"></script>
+        <script src="librerias/bootstrap4/popper.min.js"></script>
+        <script src="librerias/bootstrap4/bootstrap.min.js"></script>
+        <script src="librerias/sweetalert.min.js"></script>
+        <script src="js/crud.js"></script>
+
+        <script type="text/javascript">
+            mostrarNormi();
+        </script>
         <!--Pie de Pagina-->
         <?php
             include 'footerNav.php';
         ?>
-        
         
     </body>
     
