@@ -20,7 +20,41 @@ session_start();
     <title> admin page</title>
 	<title></title>
 </head>
+<script>
+      function fetch() {
+        // GET SEARCH TERM
+        var data = new FormData();
+        data.append('search', document.getElementById("search").value);
+        data.append('ajax', 1);
+
+        // AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', "3-search.php", true);
+        xhr.onload = function () {
+          if (xhr.status==403 || xhr.status==404) {
+            alert("ERROR LOADING FILE!");
+          } else {
+            var results = JSON.parse(this.response),
+                wrapper = document.getElementById("results");
+            wrapper.innerHTML = "";
+            if (results.length > 0) {
+              for(var res of results) {
+                var line = document.createElement("div");
+                line.innerHTML = res['sustancia'] + " - " + res['url'];
+                wrapper.appendChild(line);
+              }
+            } else {
+              wrapper.innerHTML = "No results found";
+            }
+          }
+        };
+        xhr.send(data);
+        return false;
+      }
+    </script>
 <body style="background-image: url(bg.png);">
+
+    
         <div id="content">
             <?php
             include 'navbar.php';
@@ -30,15 +64,18 @@ session_start();
                     <div class="row ">
                         <div class="col-sm">
                             <div class=" container-fluid border border-dark rounded" style="background: white;height:auto ;width: 146%;margin-top: 20px;margin-bottom: 5px">
-                                <form>
+                                <form class="form-inline m-auto" onsubmit="return fetch();">
                                     <div class="form-group" style="margin-top: 20px">
                                         
-                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Busqueda de sustancias">
+                                        <input type="text" class="form-control" id="search" placeholder="Busqueda de sustancias"required/>
+                                        <input type="submit"value="Search">
 
                                     </div>
                                         
                                 </form>
+                                <div id="results"></div>
                                 <div class="container">
+                                    <!--Search Results-->
                                     <div class="row">
                                         <h2>Crud con PDO y MySQL</h2>
                                         <div class="col-sm-12">
