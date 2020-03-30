@@ -1,14 +1,15 @@
 <?php
-/*
-session_start();
-    if(isset($_SESSION['userlogin'])){
-        header("Location: index.php");
+    if (isset($_POST['search'])) {
+        require "3-search.php";
     }
-    */
 ?>
 <!DOCTYPE html>
 <html>
     <head> 
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <!--Importacion de CSS de la carpeta (stylesheet.css)-->
         <link rel= "stylesheet"  type="text/css"  href="stylesheet.css"/>
         <!-- Required meta tags -->
@@ -27,52 +28,39 @@ session_start();
             <?php
             include 'navbar.php';
             ?>
-            <!--Busqueda-->
-            <div class = "text-center mt-5" style="width: 100%;">   
-                <form>
-                    <div class="form-group">
-                        <h2>
-                            <label for="formGroupExampleInput">Division de Tecnologia Quimica</label>
-                        </h2>
-                        <div class="text-light">
-                        <h3>
-                            <label for="formGroupExampleInput">Hojas de seguridad</label>
-                        </h3>
-                        <input class="form-control m-auto mt-1" style="width: 60%;" type="text" placeholder="Sustancia a buscar">
-                    </div>
-                        
-                    </div>
-                    <button type="submit" class="btn btn-light">Buscar</button>
-                </form>
+        
+            <div class = "text-center text-light mt-5" style="width: 100%;"> 
+                <h2>
+                    <label >Division de Tecnologias Quimicas</label>
+                </h2>
+                <h3 > 
+                    <label>hojas de Seguridad</label>
+                </h3>
             </div>
-
-
-            <!--Ultimas Consultas-->
-            
+            <!--Busqueda-->
+            <form method="post">
+                <div class="form-group text-center">
+                    <input class="form-control m-auto mt-1" style="width: 60%;" type="text" name="search" placeholder="Escribe una Sustancia" required/>
+                    <input type="submit" value="Buscar">
+                </div>
+            </form>     
             <div class="container">
                 <div class="row">
-                    <h2>Crud con PDO y MySQL</h2>
                     <div class="col-sm-12">
                         <div class="card text-left">
                             <div class="card-header">
                                 <ul class="nav nav-tabs card-header-tabs">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="#">Crud PDO</a>
+                                        <p>Resultados</p>
                                     </li>
                                 </ul>
                             </div>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <span class="btn btn-primary" data-toggle="modal" data-target="#insertarModal">
-                                            <i class="fas fa-plus-circle"></i> Nuevo registro
-                                        </span>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                            <div id="tablaDatos"></div>
+                                        <?php require_once "search.php";
+                                            
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -80,23 +68,15 @@ session_start();
                     </div>
                 </div>
             </div>
+            
+
+            
         </div>   <!--Termina Contenido-->
-
-
-
-        
+ 
         <?php require_once "modalInsert.php" ?>
         <?php require_once "modalUpdate.php" ?>
 
-        <script src="librerias/bootstrap4/jquery-3.4.1.min.js"></script>
-        <script src="librerias/bootstrap4/popper.min.js"></script>
-        <script src="librerias/bootstrap4/bootstrap.min.js"></script>
-        <script src="librerias/sweetalert.min.js"></script>
         <script src="js/crud.js"></script>
-
-        <script type="text/javascript">
-            mostrarNormi();
-        </script>
         <!--Pie de Pagina-->
         <?php
             include 'footerNav.php';

@@ -1,3 +1,4 @@
+/*
 function mostrar(){
 	$.ajax({
 		type:"POST",
@@ -7,6 +8,7 @@ function mostrar(){
 		}
 	});
 }
+*/
 function mostrarNormi(){
 	$.ajax({
 		type:"POST",

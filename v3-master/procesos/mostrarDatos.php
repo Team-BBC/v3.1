@@ -1,10 +1,10 @@
 <?php
 
-	require_once "../crud/crud.php";
+	require_once "../crud/Crud.php";
 	$obj = new crud();
 	$datos = $obj -> mostrarDatos();
 
-	$tabla ='<table class="table table-dark">
+	$tabla ='<table class="table table-dark">	
 				<thead>
 					<tr class="font-weight-bold">
 						<td>Nombre</td>

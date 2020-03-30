@@ -93,7 +93,7 @@
                         success: function(data){    //returns 1 if the login was correct.
                             alert(data);
                             if($.trim(data) === "1"){
-                                setTimeout(' window.location.href =  "index.php"', 1000);
+                                setTimeout(' window.location.href =  "admin.php"', 1000);
                             }
                         },
                         error: function(data){

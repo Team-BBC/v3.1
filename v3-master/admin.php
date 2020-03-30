@@ -4,54 +4,34 @@ session_start();
     if(!isset($_SESSION['userlogin'])){
         header("Location: login.php");
     }
+    if (isset($_POST['search'])) {
+        require "3-search.php";
+    }
     
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset = "utf-8"/>
+
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    
+    <!-- Bootstrap CSS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!--Importacion de CSS de la carpeta (stylesheet.css)-->
     <link rel= "stylesheet"  type="text/css"  href="stylesheet.css"/>
-        <!-- Required meta tags -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-        
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset = "utf-8"/>    
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title> admin page</title>
 	<title></title>
 </head>
-<script>
-      function fetch() {
-        // GET SEARCH TERM
-        var data = new FormData();
-        data.append('search', document.getElementById("search").value);
-        data.append('ajax', 1);
-
-        // AJAX
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', "3-search.php", true);
-        xhr.onload = function () {
-          if (xhr.status==403 || xhr.status==404) {
-            alert("ERROR LOADING FILE!");
-          } else {
-            var results = JSON.parse(this.response),
-                wrapper = document.getElementById("results");
-            wrapper.innerHTML = "";
-            if (results.length > 0) {
-              for(var res of results) {
-                var line = document.createElement("div");
-                line.innerHTML = res['sustancia'] + " - " + res['url'];
-                wrapper.appendChild(line);
-              }
-            } else {
-              wrapper.innerHTML = "No results found";
-            }
-          }
-        };
-        xhr.send(data);
-        return false;
-      }
-    </script>
 <body style="background-image: url(bg.png);">
 
     
@@ -64,33 +44,30 @@ session_start();
                     <div class="row ">
                         <div class="col-sm">
                             <div class=" container-fluid border border-dark rounded" style="background: white;height:auto ;width: 146%;margin-top: 20px;margin-bottom: 5px">
-                                <form class="form-inline m-auto" onsubmit="return fetch();">
-                                    <div class="form-group" style="margin-top: 20px">
-                                        
-                                        <input type="text" class="form-control" id="search" placeholder="Busqueda de sustancias"required/>
-                                        <input type="submit"value="Search">
-
+                                <form method="post">
+                                    <div class="form-group text-left">
+                                        <input class="form-control m-auto mt-1" style="width: 60%; float: left;" type="text" name="search" placeholder="Escribe una Sustancia" required/>
+                                        <input type="submit" value="Buscar">
                                     </div>
-                                        
-                                </form>
-                                <div id="results"></div>
+                                </form> 
+                                
                                 <div class="container">
                                     <!--Search Results-->
                                     <div class="row">
-                                        <h2>Crud con PDO y MySQL</h2>
+                                        <h2>Busquedas</h2>
                                         <div class="col-sm-12">
                                             <div class="card text-left">
                                                 <div class="card-header">
                                                     <ul class="nav nav-tabs card-header-tabs">
                                                         <li class="nav-item">
-                                                            <a class="nav-link active" href="#">Crud PDO</a>
+                                                            <a class="nav-link active" href="#">Resultados</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col-sm-12">
-                                                                <div id="tablaDatos"></div>
+                                                            <?php require_once "adminSearch.php"; ?>
                                                         </div>
                                                     </div>
                                                 </div>

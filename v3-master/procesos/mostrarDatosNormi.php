@@ -1,6 +1,6 @@
 <?php
 
-	require_once "../crud/crud.php";
+	require_once "../crud/Crud.php";
 	$obj = new crud();
 	$datos = $obj -> mostrarDatos();
 
